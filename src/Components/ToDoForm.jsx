@@ -6,7 +6,7 @@ class ToDoForm extends Component {
         const text = this.todoTitle.value;
         this.props.onNewToDo({
             title:text,
-            createDate: new Date()
+            done:false
         });
     }
     render(){

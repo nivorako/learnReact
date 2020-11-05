@@ -10,7 +10,9 @@ class App extends Component {
       todos : []
     };
   }
- 
+  toggleTodoState(todo){
+    alert(todo.title);
+  }
   onNewToDo(todo){
     let newToDoList = this.state.todos;
     newToDoList.push(todo);
@@ -24,7 +26,8 @@ class App extends Component {
         </div>
         <div className="App-intro">
           <ToDoForm onNewToDo={this.onNewToDo.bind(this)}/>
-          <List todos={this.state.todos}/>
+          <List todos={this.state.todos} 
+                onTodoToggle={this.toggleTodoState.bind(this)}/>
         </div>
       </div>
     );
