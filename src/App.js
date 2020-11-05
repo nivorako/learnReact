@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
+import ToDoForm from './Components/ToDoForm';
+import List from './Components/list';
 import './App.css';
 
-
-class List extends Component {
-  render(){
-    return (
-      <div className="List">Ici ma liste</div>
-    );
-  }
-}
-
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      todos : []
+    };
+  }
+ 
+  onNewToDo(todo){
+    let newToDoList = this.state.todos;
+    newToDoList.push(todo);
+    this.setState({ todos: newToDoList });
+  }
   render(){
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Notre cours commence</h2>
+          <h2>ToDo-App</h2>
         </div>
         <div className="App-intro">
-          <List />
+          <ToDoForm onNewToDo={this.onNewToDo.bind(this)}/>
+          <List todos={this.state.todos}/>
         </div>
       </div>
     );

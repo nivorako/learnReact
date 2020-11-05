@@ -5,7 +5,7 @@ class ToDoForm extends Component {
         evt.preventDefault();
         const text = this.todoTitle.value;
         this.props.onNewToDo({
-            title:'txt',
+            title:text,
             createDate: new Date()
         });
     }
